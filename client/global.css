@@ -49,6 +49,11 @@
     cursor: none; /* Let the custom cursor handle it */
   }
 
+  /* Force Space Grotesk on all standard elements */
+  h1, h2, h3, h4, h5, h6, p, a, button, input, label {
+    @apply font-sans;
+  }
+
   /* Force hidden native cursor on desktop */
   @media (min-width: 768px) {
     * {
