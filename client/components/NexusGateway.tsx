@@ -32,7 +32,7 @@ export default function NexusGateway() {
           </div>
 
           <h2 className="font-sans font-bold text-3xl tracking-tight text-white uppercase mb-2">
-            NEXUS GATEWAY
+            Keys Beats
           </h2>
           <p className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 uppercase mb-10">
             [ ESTABLISHING CONNECTION // KEYS BEATS ]
@@ -48,7 +48,7 @@ export default function NexusGateway() {
               <div className="flex items-center space-x-4">
                 <Music className="w-5 h-5 text-primary" />
                 <span className="font-sans font-bold text-white uppercase tracking-wider">
-                  ENTER NUCLEUS
+                  MUSIC
                 </span>
               </div>
               <span className="font-mono text-[9px] text-zinc-600">[ ACTIVE ]</span>
@@ -58,7 +58,7 @@ export default function NexusGateway() {
               <div className="flex items-center space-x-4">
                 <Info className="w-5 h-5 text-zinc-600" />
                 <span className="font-sans font-bold text-zinc-600 uppercase tracking-wider">
-                  IDENTITY / ABOUT
+                  IDENTITY
                 </span>
               </div>
               <span className="font-mono text-[9px] text-zinc-700">
@@ -70,7 +70,7 @@ export default function NexusGateway() {
               <div className="flex items-center space-x-4">
                 <Mail className="w-5 h-5 text-zinc-600" />
                 <span className="font-sans font-bold text-zinc-600 uppercase tracking-wider">
-                  TRANSMISSIONS / CONTACT
+                  CONTACT
                 </span>
               </div>
               <span className="font-mono text-[9px] text-zinc-700">
