@@ -1,10 +1,14 @@
 import CentralHero from "@/components/CentralHero";
 import Tracklist from "@/components/Tracklist";
 import NeonCursor from "@/components/NeonCursor";
+import NexusGateway from "@/components/NexusGateway";
 
 export default function Index() {
   return (
     <main className="relative min-h-screen bg-black text-white select-none overflow-x-hidden">
+      {/* 0. Entry Modal Layer */}
+      <NexusGateway />
+
       {/* 1. Custom Interactive Cursor (Desktop Only) */}
       <NeonCursor />
 
