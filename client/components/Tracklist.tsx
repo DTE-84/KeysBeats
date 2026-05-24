@@ -1,9 +1,10 @@
 import TrackRow from "./TrackRow";
 
 const tracks = [
-  { id: "01", title: "METROPOLIS", src: "/demo-track-1.mp3" },
-  { id: "02", title: "SILHOUETTE", src: "/demo-track-2.mp3" },
-  { id: "03", title: "KINETIC", src: "/demo-track-3.mp3" },
+  { id: "01", title: "NEXUS FLOW", src: "/nexus-flow.mp3" },
+  { id: "02", title: "SIGNAL CLARITY", src: "/signal-clarity.mp3" },
+  { id: "03", title: "KINETIC NEON", src: "/kinetic-neon.mp3" },
+  { id: "04", title: "LUX FOREST", src: "/lux-forest.mp3" },
 ];
 
 export default function Tracklist() {

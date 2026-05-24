@@ -39,7 +39,8 @@ export default function CircularVisualizer() {
 
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
-      const baseRadius = Math.min(canvas.width, canvas.height) * 0.22;
+      // Tightened base radius to sit just outside the logo (roughly 0.12 of viewport)
+      const baseRadius = Math.min(canvas.width, canvas.height) * 0.13;
 
       // Enable a 'screen' composite mode to stack light values for an intense bloom
       ctx.globalCompositeOperation = "screen";

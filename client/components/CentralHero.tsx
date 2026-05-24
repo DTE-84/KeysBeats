@@ -21,8 +21,8 @@ export default function CentralHero() {
           />
         </div>
 
-        {/* Space Grotesk Branding Content - Positioned below the logo without pushing it off-center */}
-        <div className="absolute top-full mt-10 w-max flex flex-col items-center">
+        {/* Space Grotesk Branding Content - Positioned further below to clear audio spikes */}
+        <div className="absolute top-full mt-28 w-max flex flex-col items-center">
           <h1 className="font-sans font-bold text-4xl sm:text-5xl tracking-tight text-white uppercase whitespace-nowrap">
             KEYS BEATS
           </h1>
