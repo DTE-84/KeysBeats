@@ -2,6 +2,7 @@ import CentralHero from "@/components/CentralHero";
 import Tracklist from "@/components/Tracklist";
 import NeonCursor from "@/components/NeonCursor";
 import NexusGateway from "@/components/NexusGateway";
+import Navbar from "@/components/Navbar";
 
 export default function Index() {
   return (
@@ -9,7 +10,10 @@ export default function Index() {
       {/* 0. Entry Modal Layer */}
       <NexusGateway />
 
-      {/* 1. Custom Interactive Cursor (Desktop Only) */}
+      {/* 1. Global Navigation */}
+      <Navbar />
+
+      {/* 2. Custom Interactive Cursor (Desktop Only) */}
       <NeonCursor />
 
       {/* 2. Audio-Reactive Hero Section */}
