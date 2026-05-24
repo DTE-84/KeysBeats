@@ -41,6 +41,7 @@ export default function CircularVisualizer() {
       const centerY = canvas.height / 2;
       // Tightened base radius to sit just outside the logo (roughly 0.12 of viewport)
       const baseRadius = Math.min(canvas.width, canvas.height) * 0.13;
+      const time = Date.now() * 0.001; // For organic drifting
 
       // Enable a 'screen' composite mode to stack light values for an intense bloom
       ctx.globalCompositeOperation = "screen";
@@ -49,26 +50,34 @@ export default function CircularVisualizer() {
         const value = dataArray[i];
         const percent = value / 255;
 
-        // Spike size reactions
-        const spikeLength = percent * 110;
-        const angle = (i / usableBufferLength) * Math.PI * 2;
+        // ORGANIC RANDOMNESS:
+        // 1. Time-based sine wave for "breathing"
+        // 2. Random jitter to prevent uniform spikes
+        const jitter = Math.sin(i * 0.5 + time * 2) * 15;
+        const randomness = (Math.random() - 0.5) * 25 * percent;
+        
+        // Spike size reactions with organic scaling
+        const spikeLength = (percent * 130) + jitter + randomness;
+        
+        // Add a slight time-based rotation to the ring
+        const angle = (i / usableBufferLength) * Math.PI * 2 + (time * 0.05);
 
         const startX = centerX + Math.cos(angle) * baseRadius;
         const startY = centerY + Math.sin(angle) * baseRadius;
         const endX = centerX + Math.cos(angle) * (baseRadius + spikeLength);
         const endY = centerY + Math.sin(angle) * (baseRadius + spikeLength);
 
-        // NEON BLOOM MATH: Scale glow intensity exponentially with volume
+        // NEON BLOOM MATH
         const neonColor = "#00ffcc"; // Electric Cyan / Mint
 
         ctx.shadowColor = neonColor;
-        ctx.shadowBlur = percent * 25; // Dynamic blur intensity matching the track bass
+        ctx.shadowBlur = (percent * 30) + (Math.random() * 8); // Flicker effect
         ctx.shadowOffsetX = 0;
         ctx.shadowOffsetY = 0;
 
         // Draw the core bright center line
         ctx.strokeStyle = "#ffffff";
-        ctx.lineWidth = 2.5;
+        ctx.lineWidth = 1.5 + (percent * 2.5);
         ctx.lineCap = "round";
 
         ctx.beginPath();
@@ -76,9 +85,9 @@ export default function CircularVisualizer() {
         ctx.lineTo(endX, endY);
         ctx.stroke();
 
-        // Draw an outer colored accent bar right on top to spread the bloom hue
+        // Draw an outer colored accent bar for the bloom hue
         ctx.strokeStyle = neonColor;
-        ctx.lineWidth = 4;
+        ctx.lineWidth = 3 + (percent * 4);
         ctx.beginPath();
         ctx.moveTo(startX, startY);
         ctx.lineTo(endX, endY);
