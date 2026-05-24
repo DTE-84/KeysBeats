@@ -167,7 +167,7 @@ export default function NeonCursor() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full pointer-events-none z-[9999] hidden md:block"
+      className="fixed inset-0 w-full h-full pointer-events-none z-[10001] hidden md:block"
     />
   );
 }
