@@ -22,12 +22,12 @@ export default function NeonCursor() {
   });
 
   const neonColors = [
-    "#00ffcc",
-    "#ff0055",
-    "#00ff33",
-    "#ff9900",
-    "#9900ff",
-    "#00a8ff",
+    "#ff5500", // High-Fidelity Burnt Orange
+    "#ffaa00", // Gold
+    "#ff0055", // Hot Pink
+    "#ff8800", // Solar Orange
+    "#9900ff", // Cyber Purple
+    "#ffffff", // White Sparkle
   ];
 
   useEffect(() => {

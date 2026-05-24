@@ -70,7 +70,7 @@ export default function CircularVisualizer() {
         // NEON BLOOM OPTIMIZATION:
         // Avoid ctx.shadowBlur as it is extremely expensive in loops.
         // Instead, we use a "multi-pass" stroke to simulate a glow.
-        const neonColor = "#00ffcc";
+        const neonColor = "#ff5500"; // High-Fidelity Burnt Orange
 
         // Pass 1: Outer wide glow (low opacity)
         ctx.strokeStyle = neonColor;
