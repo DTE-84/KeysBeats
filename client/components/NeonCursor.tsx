@@ -124,26 +124,30 @@ export default function NeonCursor() {
 
         ctx.save();
         ctx.globalAlpha = p.alpha;
-        ctx.shadowColor = p.color;
-        // Make neon glow smaller/tighter when hovering over elements to maximize readability
-        ctx.shadowBlur = physicsRef.current.targetFriction === 0.02 ? 6 : 15;
+        
+        // OPTIMIZED GLOW: Instead of shadowBlur, draw two circles
+        // 1. Outer glow circle
         ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.alpha * 0.3;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
+        ctx.fill();
 
+        // 2. Inner core circle
+        ctx.globalAlpha = p.alpha;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
+        
         ctx.restore();
       }
 
       // Render primary targeting pointer indicator
       if (mouseRef.current.isActive) {
         ctx.save();
-        ctx.shadowColor = "#ffffff";
-        ctx.shadowBlur = 8;
+        // Simplified core pointer
         ctx.fillStyle = "#ffffff";
-
         ctx.beginPath();
-        // Scale pointer indicator down slightly on hover action for premium detail look
         const cursorRadius = physicsRef.current.targetFriction === 0.02 ? 2.5 : 4;
         ctx.arc(mouseRef.current.x, mouseRef.current.y, cursorRadius, 0, Math.PI * 2);
         ctx.fill();

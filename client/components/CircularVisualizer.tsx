@@ -67,31 +67,39 @@ export default function CircularVisualizer() {
         const endX = centerX + Math.cos(angle) * (baseRadius + spikeLength);
         const endY = centerY + Math.sin(angle) * (baseRadius + spikeLength);
 
-        // NEON BLOOM MATH
-        const neonColor = "#00ffcc"; // Electric Cyan / Mint
+        // NEON BLOOM OPTIMIZATION:
+        // Avoid ctx.shadowBlur as it is extremely expensive in loops.
+        // Instead, we use a "multi-pass" stroke to simulate a glow.
+        const neonColor = "#00ffcc";
 
-        ctx.shadowColor = neonColor;
-        ctx.shadowBlur = (percent * 30) + (Math.random() * 8); // Flicker effect
-        ctx.shadowOffsetX = 0;
-        ctx.shadowOffsetY = 0;
-
-        // Draw the core bright center line
-        ctx.strokeStyle = "#ffffff";
-        ctx.lineWidth = 1.5 + (percent * 2.5);
-        ctx.lineCap = "round";
-
-        ctx.beginPath();
-        ctx.moveTo(startX, startY);
-        ctx.lineTo(endX, endY);
-        ctx.stroke();
-
-        // Draw an outer colored accent bar for the bloom hue
+        // Pass 1: Outer wide glow (low opacity)
         ctx.strokeStyle = neonColor;
-        ctx.lineWidth = 3 + (percent * 4);
+        ctx.lineWidth = 6 + (percent * 8);
+        ctx.globalAlpha = 0.15 * percent;
         ctx.beginPath();
         ctx.moveTo(startX, startY);
         ctx.lineTo(endX, endY);
         ctx.stroke();
+
+        // Pass 2: Middle glow
+        ctx.lineWidth = 3 + (percent * 4);
+        ctx.globalAlpha = 0.3 * percent;
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(endX, endY);
+        ctx.stroke();
+
+        // Pass 3: Core bright line
+        ctx.strokeStyle = "#ffffff";
+        ctx.lineWidth = 1 + (percent * 2);
+        ctx.globalAlpha = 0.8;
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(endX, endY);
+        ctx.stroke();
+
+        // Reset alpha for next iteration
+        ctx.globalAlpha = 1.0;
       }
 
       // Reset composite configuration for other UI layers

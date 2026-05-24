@@ -11,7 +11,7 @@ export default function CentralHero() {
         {/* Central Logo Container - Absolutely centered in the viewport */}
         <div
           data-hover-slow
-          className="relative w-48 h-48 sm:w-56 sm:h-56 flex items-center justify-center p-0 bg-zinc-950/40 backdrop-blur-md rounded-full border border-zinc-900 shadow-[0_0_60px_rgba(0,0,0,0.9)] transition-all duration-500 hover:scale-105 group overflow-hidden z-20"
+          className="relative w-48 h-48 sm:w-56 sm:h-56 flex items-center justify-center p-0 bg-zinc-950/80 rounded-full border border-zinc-900 shadow-[0_0_60px_rgba(0,0,0,0.9)] transition-all duration-500 hover:scale-105 group overflow-hidden z-20"
         >
           {/* Main Artist Logo - Clipped to Circle */}
           <img
